@@ -9,7 +9,7 @@ const GifGrid = ({ category }) => {
   const key = "1";
   const getGifts = async () => {
     try {
-      const busqueda = "Samurai x";
+      const busqueda = category;
       const resp = await fetch(
         `https://api.giphy.com/v1/gifs/search?q=${busqueda}&api_key=${key}&limit=10`
       );
@@ -33,14 +33,16 @@ const GifGrid = ({ category }) => {
   };
 
   return (
-    <div>
-      <span></span>
-      {category}
+    <>
+      <div className="card-grid">
+        <span></span>
+        {category}
 
-      {images.map((img) => {
-        return <GIfGridItem key={img.id} img={img} />;
-      })}
-    </div>
+        {images.map((img) => {
+          return <GIfGridItem key={img.id} img={img} />;
+        })}
+      </div>
+    </>
   );
 };
 
