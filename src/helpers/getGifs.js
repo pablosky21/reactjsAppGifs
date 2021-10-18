@@ -1,7 +1,7 @@
 export const getGifts = async (category) => {
   try {
     const busqueda = category;
-    const key = "1";
+    const key = "VL9Fy0w6ZfIdp2Keq3LBreGD99YnWfEC";
     const resp = await fetch(
       `https://api.giphy.com/v1/gifs/search?q=${encodeURI(
         busqueda
@@ -11,7 +11,6 @@ export const getGifts = async (category) => {
       throw new Error("HTTP status " + resp.status);
     }
     const { data } = await resp.json();
-    console.log(data);
 
     const gifs = data.map((img) => {
       return {
